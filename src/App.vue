@@ -7,7 +7,7 @@
 		<div class="container pt-5" id="app">
 			<div class="row">
 				<div class="row mb-3">
-					<div class="col">
+					<div>
 						<div>
 							<div class="verb-block">
 								<p>
@@ -15,19 +15,20 @@
 								</p>
 							</div>
 							<div class="verb-block">
-								<transition name="phone">
-									<p v-if="phoneVisibility">{{rand2}}</p>
+								<transition name="verb">
+									<p v-if="verbVisibility">{{rand2}}</p> 
 								</transition>
 							</div>
 							<div class="verb-block">
-								<transition name="phone">
-									<p v-if="phoneVisibility">{{rand3}}</p>
+								<transition name="verb">
+									 <p v-if="verbVisibility">{{rand3}}</p> 
 								</transition>
 							</div>
 							<div class="verb-block">
 							</div>
 							<button class="btn btn-primary" @click="selectVerb()">Select a verb</button>
-							<button class="btn btn-outline-success mr-3" v-on:click="phoneVisibility = !phoneVisibility">{{BtnText}}</button>
+							<button class="btn btn-outline-success mr-3 button" v-on:click="verbVisibility = !verbVisibility">{{BtnText}}</button>
+						
 						</div>
 					</div>
 				</div>
@@ -106,7 +107,7 @@
 				verbs: verbs,
 				verb: verbs[0],
 				selectedVerbIndex: 0,
-				phoneVisibility: false,
+				verbVisibility: false,
 				search1: '',
 				search2: '',
 				logs: [],
@@ -150,7 +151,7 @@
 		},
 		computed: {
 			BtnText() {
-				return this.phoneVisibility ? 'Hide forms' : 'Show forms'
+				return this.verbVisibility ? 'Hide forms' : 'Show forms'
 			},
 		}
 
@@ -166,12 +167,6 @@
 		color: #2c3e50;
 		margin-top: 20px;
 		
-		.pointer {
-			cursor: pointer;
-
-		}
-
-
 		.right {
 			color: aqua
 		}
@@ -179,21 +174,23 @@
 		.wrong {
 			color: rgb(209, 32, 32)
 		}
-
+        .button{
+			width: 120px
+		}
 
 		.verb-block {
 			height: 36px;
 		}
 
 
-		.phone-enter-active,
-		.phone-leave-active {
+		.verb-enter-active,
+		.verb-leave-active {
 			transition: all .5s;
 		}
 
 
-		.phone-enter,
-		.phone-leave-to {
+		.verb-enter,
+		.verb-leave-to {
 			transform: translateX(50px);
 			opacity: 0;
 		}
