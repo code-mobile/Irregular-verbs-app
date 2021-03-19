@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath:'/verbs_app/'
+    publicPath:'/Irregular-verbs-app/'
 }
